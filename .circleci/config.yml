@@ -2,7 +2,7 @@
 # Define commands to be used more than once here:
 references:
   container_config: &container_config
-    working_directory: /var/www/html
+    #working_directory: /var/www/html
     docker:
       - image: prithvi18/circleci-staticweb:v1
         auth:
