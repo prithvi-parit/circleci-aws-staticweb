@@ -36,6 +36,7 @@ jobs:
       - run:
           name: "creating index"
           command: cat index.html
+      - aws-cli/install
       - run:
           command: ls #/var/www/html
       # Install missing gems and cache them for future builds
