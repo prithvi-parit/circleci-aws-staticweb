@@ -4,8 +4,10 @@ references:
   container_config: &container_config
     working_directory: /var/www/html
     docker:
-      - image: httpd
-
+      - image: prithvi18/hadoop-master:v2
+        auth:
+          username: prithvi18  # can specify string literal values
+          password: Prithvitoppi@007
 ##
 # CircleCI config starts here...
 version: 2.1
@@ -35,7 +37,7 @@ jobs:
           name: "creating index"
           command: cat index.html
       - run:
-          command: ls /var/www/html
+          command: ls #/var/www/html
       # Install missing gems and cache them for future builds
       #- bundle/bundle-install
       # Cache the repo code for the deploy job.
