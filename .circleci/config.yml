@@ -70,7 +70,7 @@ jobs:
   #          - jekyll-site-{{ .Branch }}-{{ .Revision }}
    #         - jekyll-site-
       # Install AWS CLI tools
-      - aws-cli/install
+     # - aws-cli/install
       # Deploy our code to our AWS bucket
       - run:
           name: "Deploy to S3"
