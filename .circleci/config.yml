@@ -77,7 +77,9 @@ jobs:
           command: whoami
           #command: aws s3 sync /var/www/html "s3://$AWS_BUCKET_NAME" --delete
       - run:
-          command: ifconfig
+          command: pwd
+      - run:
+          command: cat /var/www/html/index.html
 
 workflows:
   version: 2
