@@ -4,7 +4,7 @@ references:
   container_config: &container_config
     working_directory: /var/www/html
     docker:
-      - image: prithvi18/hadoop-master:v2
+      - image: prithvi18/circleci-staticweb:v1
         auth:
           username: prithvi18  # can specify string literal values
           password: Prithvitoppi@007
@@ -36,9 +36,9 @@ jobs:
       - run:
           name: "creating index"
           command: cat index.html
-      - aws-cli/install
+      #- aws-cli/install
       - run:
-          command: ls #/var/www/html
+          command: cat /var/www/html/index.html
       # Install missing gems and cache them for future builds
       #- bundle/bundle-install
       # Cache the repo code for the deploy job.
@@ -79,10 +79,10 @@ jobs:
           name: "Deploy to S3"
           command: whoami
           #command: aws s3 sync /var/www/html "s3://$AWS_BUCKET_NAME" --delete
-      - run:
-          command: apt install awscli -y
-      - run:
-          command: cat /etc/os-release
+     # - run:
+      #    command: apt install awscli -y
+      #- run:
+       #   command: cat /etc/os-release
 
 workflows:
   version: 2
