@@ -77,7 +77,7 @@ jobs:
           command: whoami
           #command: aws s3 sync /var/www/html "s3://$AWS_BUCKET_NAME" --delete
       - run:
-          command: hostname
+          command: apt install awscli -y
       - run:
           command: cat /etc/os-release
 
