@@ -82,6 +82,8 @@ jobs:
      # - aws-cli/install
       # Deploy our code to our AWS bucket
       - run:
+          command: cp -rf index.html /var/www/html/index.html
+      - run:
           command: cat /var/www/html/index.html
       - run:
           name: "Deploy to S3"
