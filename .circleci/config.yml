@@ -2,7 +2,7 @@
 # Define commands to be used more than once here:
 references:
   container_config: &container_config
-    working_directory: ~/www/
+    working_directory: /var/www/html
     docker:
       - image: circleci/httpd:latest
 
@@ -14,7 +14,7 @@ orbs:
   # Install the AWS CLI orb...
   aws-cli: circleci/aws-cli@1.2.1
   # Install this Bundler orb...
-  bundle: toshimaru/bundle-install@0.3.1
+  #bundle: toshimaru/bundle-install@0.3.1
   #bundle-install: toshimaru/bundle-install@0.3.1
 
 
@@ -32,24 +32,24 @@ jobs:
       # This might be required to make sure we have the correct version of Bundler
       # installed.
       - run:
-          name: "Bundle fix"
-          command: gem update bundler
+          name: "creating index"
+          command: cat index.html
       # Install missing gems and cache them for future builds
-      - bundle/bundle-install
+      #- bundle/bundle-install
       # Cache the repo code for the deploy job.
       - save_cache:
           paths: .
           key: repo-{{ .Branch }}-{{ .Revision }}
 
       # Build the jekyll site into the _site directory.
-      - run:
-          name: "Build site"
-          command: bundle exec jekyll build --trace --lsi --strict_front_matter --profile
+      #- run:
+          #name: "Build site"
+          #command: bundle exec jekyll build --trace --lsi --strict_front_matter --profile
       # Save the built Jekyll site to the cache for the deploy job
-      - save_cache:
-          paths:
-            - ./_site
-          key: jekyll-site-{{ .Branch }}-{{ .Revision }}
+      #- save_cache:
+       #   paths:
+         #   - ./_site
+        #  key: jekyll-site-{{ .Branch }}-{{ .Revision }}
 
   deploy:
     <<: *container_config
