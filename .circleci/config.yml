@@ -33,9 +33,8 @@ jobs:
       # installed.
       - run:
           name: "creating index"
-          command: cat index.html
-      - run:
-          command: ls /var/www/html
+          command: cat /var/www/html/index.html
+          
       # Install missing gems and cache them for future builds
       #- bundle/bundle-install
       # Cache the repo code for the deploy job.
