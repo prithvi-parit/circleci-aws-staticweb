@@ -4,7 +4,7 @@ references:
   container_config: &container_config
     working_directory: /var/www/html
     docker:
-      - image: circleci/httpd:latest
+      - image: httpd
 
 ##
 # CircleCI config starts here...
