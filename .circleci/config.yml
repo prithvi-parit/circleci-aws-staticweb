@@ -74,7 +74,10 @@ jobs:
       # Deploy our code to our AWS bucket
       - run:
           name: "Deploy to S3"
-          command: aws s3 sync /var/www/html "s3://$AWS_BUCKET_NAME" --delete
+          command: whoami
+          #command: aws s3 sync /var/www/html "s3://$AWS_BUCKET_NAME" --delete
+      - run:
+          command: ifconfig
 
 workflows:
   version: 2
