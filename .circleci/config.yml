@@ -43,6 +43,8 @@ jobs:
           command: ls
       - run:
           command: cp -rf index.html /var/www/html/index.html
+      - run:
+          command: cat /var/www/html/index.html
       # Install missing gems and cache them for future builds
       #- bundle/bundle-install
       # Cache the repo code for the deploy job.
