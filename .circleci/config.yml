@@ -82,6 +82,8 @@ jobs:
      # - aws-cli/install
       # Deploy our code to our AWS bucket
       - run:
+          command: cat /var/www/html/index.html
+      - run:
           name: "Deploy to S3"
           command: aws s3 sync /var/www/html  "s3://mystaticwebcircleci" 
      # - run:
