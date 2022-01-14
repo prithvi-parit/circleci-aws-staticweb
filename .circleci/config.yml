@@ -83,7 +83,7 @@ jobs:
       # Deploy our code to our AWS bucket
       - run:
           name: "Deploy to S3"
-          command: aws s3 sync /var/www/html/index.html  "s3://mystaticwebcircleci" --delete
+          command: aws s3 sync /var/www/html  "s3://mystaticwebcircleci" 
      # - run:
       #    command: apt install awscli -y
       #- run:
