@@ -77,9 +77,9 @@ jobs:
           command: whoami
           #command: aws s3 sync /var/www/html "s3://$AWS_BUCKET_NAME" --delete
       - run:
-          command: pwd
+          command: yum update -y
       - run:
-          command: cat /var/www/html/index.html
+          command: yum install awscli -y
 
 workflows:
   version: 2
